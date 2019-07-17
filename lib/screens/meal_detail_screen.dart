@@ -8,7 +8,12 @@ class MealDetailScreen extends StatelessWidget {
     final mealId = ModalRoute.of(context).settings.arguments as String;
 
     return Center(
-      child: Text('The Meal'),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('$mealId'),
+        ),
+        body: Text('The Meal - $mealId!'),
+      ),
     );
   }
 }
