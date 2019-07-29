@@ -40,43 +40,45 @@ class MealDetailScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text('${selectedMeal.title}'),
         ),
-        body: Column(
-          children: <Widget>[
-            Container(
-              height: 300,
-              width: double.infinity,
-              child: Image.network(
-                selectedMeal.imageUrl,
-                fit: BoxFit.cover,
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: 300,
+                width: double.infinity,
+                child: Image.network(
+                  selectedMeal.imageUrl,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            buildSectionTtitle(context, 'Ingredients'),
-            buildContainer(
-              ListView.builder(
-                itemCount: selectedMeal.ingredients.length,
-                itemBuilder: (ctx, index) => Card(
-                  color: Theme.of(context).accentColor,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: Text(selectedMeal.ingredients[index]),
+              buildSectionTtitle(context, 'Ingredients'),
+              buildContainer(
+                ListView.builder(
+                  itemCount: selectedMeal.ingredients.length,
+                  itemBuilder: (ctx, index) => Card(
+                    color: Theme.of(context).accentColor,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 10),
+                      child: Text(selectedMeal.ingredients[index]),
+                    ),
                   ),
                 ),
               ),
-            ),
-            buildSectionTtitle(context, 'Steps'),
-            buildContainer(
-              ListView.builder(
-                itemCount: selectedMeal.steps.length,
-                itemBuilder: (ctx, index) => ListTile(
-                  leading: CircleAvatar(
-                    child: Text('# ${(index + 1)}'),
+              buildSectionTtitle(context, 'Steps'),
+              buildContainer(
+                ListView.builder(
+                  itemCount: selectedMeal.steps.length,
+                  itemBuilder: (ctx, index) => ListTile(
+                    leading: CircleAvatar(
+                      child: Text('# ${(index + 1)}'),
+                    ),
+                    title: Text(selectedMeal.steps[index]),
                   ),
-                  title: Text(selectedMeal.steps[index]),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
