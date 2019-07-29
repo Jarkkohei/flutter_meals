@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import '../dummy_data.dart';
 import '../widgets/meal_item.dart';
 
-class CategoryMealsScreen extends StatelessWidget {
+class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
-  /* 
-  final String categoryId;
-  final String categoryTitle;
 
-  CategoryMealsScreen(this.categoryId, this.categoryTitle); 
-  */
+  @override
+  _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
+}
 
+class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   @override
   Widget build(BuildContext context) {
     final routeArgs =
