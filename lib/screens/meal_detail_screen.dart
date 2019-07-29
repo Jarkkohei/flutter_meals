@@ -13,7 +13,7 @@ class MealDetailScreen extends StatelessWidget {
     return Center(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('$mealId'),
+          title: Text('${selectedMeal.title}'),
         ),
         body: Column(
           children: <Widget>[
